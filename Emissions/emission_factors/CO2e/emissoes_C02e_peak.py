@@ -22,13 +22,13 @@ fatores_emissao = {
     'Car_Petrol': 1080.3004514830002/1000/1.6,    # Real
     'Car_Diesel': 212.224015861/1000/1.6,         # Real
     'Car_LPG': 185.811925103/1000/1.6,            # Real
-    'Bus': 1141.4086294429999/1000/1.6,           # Real
+    'Bus': 1141.4086294429999/1000/20.3,           # Real
     'Motorbike': 1080.3004514830002/1000/1.6,     # Real
     'Walk': 0.0,
     'Bike': 0.0,
     'Rail': 25.8/1000,                            # Exemplo
     'Metro': 38.6/1000,                            # Exemplo
-    'Ferry': 0.23,                                 # Exemplo
+    'Ferry': 0.16,                                 # Exemplo
     'Taxi': 212.224015861/1000/1.6,               # Real
     'Carpool': 212.224015861/1000/2,              # Real
     'IST Shuttle': 212.224015861/1000/1.6         # Real
@@ -74,14 +74,14 @@ shift_dict = {modo: 0 for modo in modos}
 
 # 5. Função para Identificar Modos de Transporte Atuais
 def identificar_modos(row):
-    modos_atuais = set()
+    modos_atuais = []
     
     # Coluna 12: Uso de veículo privado
     uso_privado = row['Do you usually come to IST in your private vehicle? (no - 1; yes, with a car - 2; yes, with a motorbike - 3)']
     if uso_privado == 2:
-        modos_atuais.add('Car')
+        modos_atuais.append('Car')
     elif uso_privado == 3:
-        modos_atuais.add('Motorbike')
+        modos_atuais.append('Motorbike')
     
     # Coluna 14: Modos combinados
     modos_combinados = row["In case you don't travel by car to IST, which modes are combined in your daily commuting? (1 - walking only; 2 - Private car; 3 - Carpool; 4 - Bus: 5 - Ferry; 6 - Bike; 7 - Rail; 8 - Metro; 9 - motorbike; 10 - IST Shutle; 11 - Taxi; 12 - Other)"]
@@ -93,7 +93,7 @@ def identificar_modos(row):
         for modo_num in modos_combinados_lista:
             modo_name = modo_mapping.get(modo_num)
             if modo_name:
-                modos_atuais.add(modo_name)
+                modos_atuais.append(modo_name)
     
     return modos_atuais
 

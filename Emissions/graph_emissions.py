@@ -5,21 +5,21 @@ import numpy as np
 pollutants = ['CO', 'NOx', 'PM', 'VOC', 'CO2e']
 times = ['off', 'peak']
 
-# Emission values in kg for each pollutant (before and after)
+# Updated emission values in kg for each pollutant (before and after)
 emissions_before = {
-    'CO': [14.5, 14.77],
-    'NOx': [9.3, 29.09],
-    'PM': [0.59, 0.6],
-    'VOC': [2.97, 2.98],
-    'CO2e': [4465.26, 4577.98]
+    'CO': [8.44, 9.56],
+    'NOx': [3.34, 4.95],
+    'PM': [0.12, 0.13],
+    'VOC': [1.13, 1.26],
+    'CO2e': [1714.55, 1840.51]
 }
 
 emissions_after = {
-    'CO': [9.62, 9.69],
-    'NOx': [6.5, 20.11],
-    'PM': [0.41, 0.42],
-    'VOC': [2.0, 2.0],
-    'CO2e': [3072.34, 3148.84]
+    'CO': [5.41, 6.12],
+    'NOx': [2.44, 3.57],
+    'PM': [0.09, 0.10],
+    'VOC': [0.73, 0.82],
+    'CO2e': [1183.13, 1268.31]
 }
 
 # Set up bar plot
@@ -49,7 +49,7 @@ ax.set_ylabel('Total Emissions (kg, log scale)')
 ax.set_title('Total Emissions Before and After by Pollutant and Time Period')
 ax.set_xticks(x)
 ax.set_xticklabels(pollutants)
-ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
+ax.legend(loc='upper left')
 
 # Display
 plt.tight_layout()

@@ -59,7 +59,7 @@ stock_buses = [
 ]
 
 ############################################################ peak
-
+print(sum(k * s for k, s in zip(kms_gasolina, stock_gasolina)))
 emissions_cars_gasolina_peak = 3065773.5912759254744 + 43908.6295722919720
 print(f"Fator de emissão CO2 (g/km*V) para carros a gasolina em peak hours = {round(1e6 * emissions_cars_gasolina_peak/sum(k * s for k, s in zip(kms_gasolina, stock_gasolina)), 9)}")
 

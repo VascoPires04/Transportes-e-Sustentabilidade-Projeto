@@ -115,6 +115,14 @@ descriptive_stats['Bike Parking Space Distribution'] = bike_parking_space_distri
 floor_distribution = df['If you live in a building, which floor do you live in? (note: "0" - ground floor; "-1" - basement; "-2" - sub-basement; "5" - higher than 4th floor)'].value_counts(normalize=True) * 100
 descriptive_stats['Floor Distribution'] = floor_distribution
 
+# 25. Profile Distribution decision tree
+profile_distribution_dt = df['Profile'].value_counts()
+descriptive_stats['Profile Distribution for the Decision Tree'] = profile_distribution_dt
+
+# 26. Profile Distribution survey
+profile_distribution_s = df['Would you use a bike-sharing system at IST and shift to cycling for daily commuting? (Not interested - 0; Definitely yes, even if it is not electric - 1; Definitely yes, if it is  electric - 2; I have to think - 3)'].value_counts()
+descriptive_stats['Profile Distribution for the Survey'] = profile_distribution_s
+
 # Save the descriptive statistics to a .txt file
 output_file_path = 'Descriptive_Statistics.txt'  # Change the path as needed
 with open(output_file_path, 'w') as f:

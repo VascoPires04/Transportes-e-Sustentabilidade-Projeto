@@ -312,3 +312,19 @@ If you live in a building, which floor do you live in? (note: "0" - ground floor
 -2.0     0.287632
 
 
+Profile Distribution for the Decision Tree:
+Profile
+0    484
+3    400
+2    244
+1    144
+
+
+Profile Distribution for the Survey:
+Would you use a bike-sharing system at IST and shift to cycling for daily commuting? (Not interested - 0; Definitely yes, even if it is not electric - 1; Definitely yes, if it is  electric - 2; I have to think - 3)
+0    490
+3    463
+1    179
+2    140
+
+

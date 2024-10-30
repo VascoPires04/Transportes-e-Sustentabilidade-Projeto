@@ -1,11 +1,25 @@
 import pandas as pd
+import re
+import sys
+import os
 
-# Load the data from the existing Excel file
-df = pd.read_excel("TS_Project_SurveyUBike.xlsx", sheet_name='Raw data', engine='openpyxl')
+# Reconfigura a saída padrão para UTF-8 (opcional)
+sys.stdout.reconfigure(encoding='utf-8')
+
+# Define o diretório de trabalho como o diretório do script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+
+# Caminho para o arquivo, subindo três níveis
+file_path = os.path.join("..", "TS_Project_SurveyUBike.xlsx")
+
+# Carregar os dados
+df = pd.read_excel(file_path, sheet_name='Raw data', engine='openpyxl')
 
 # Function to assign profile based on decision tree
 def assign_profile(row):
     # Extract relevant information from the row
+    children_under_10 = row['How many children do you have aged between 6 to 10years?']
     children_under_5 = row['How many children do you have aged between 1 to 5years?']
     children_under_1 = row['How many children do you have aged under 1?']
     travel_time = row['What is your usual travel time to IST, from home? (minutes)']
@@ -21,7 +35,8 @@ def assign_profile(row):
     # List of municipalities considered as Lisboa district north
     lisboa_district_north = ["Lisboa", "Loures", "Odivelas", "Amadora", "Sintra", "Oeiras", "Cascais"]
 
-    if children_under_5 != 0 or children_under_1 != 0:
+     
+    if children_under_10 !=0 or children_under_5 != 0 or children_under_1 != 0:
         if travel_time > 30:
             return 0
         else:
@@ -117,5 +132,5 @@ def assign_profile(row):
 df['Profile'] = df.apply(assign_profile, axis=1)
 
 # Save the updated DataFrame to the SAME Excel file without overwriting the existing content
-with pd.ExcelWriter("TS_Project_SurveyUBike.xlsx", engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
+with pd.ExcelWriter(file_path, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
     df.to_excel(writer, sheet_name='Raw data', index=False)
