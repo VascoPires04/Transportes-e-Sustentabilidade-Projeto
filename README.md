@@ -1,4 +1,4 @@
-# Transport-and-Sustainability-Project
+# Transports-and-Sustainability-Project
 
 This repository contains all the code used for the completion of the project for the Transport and Sustainability course at Instituto Superior Técnico.
 
