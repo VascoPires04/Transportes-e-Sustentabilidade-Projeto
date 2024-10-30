@@ -11,4 +11,6 @@ De forma a obter os resultados dos valores de emissões, a ordem para correr o p
 
 4º Correr os ficherios "emissoes_Gas_peak/off_peak".py onde obterá os resultados finais no que toca às emissões por gás.
 
-5ª (Nota) para obter as shift-matrices, deverá correr o programa de emissões do gás "CO2e".
+5º Para gerar o gráfico com as respetivas emissões deverá correr o programa graph_emissions.py.
+
+6ª (Nota) para obter as shift-matrices somente, deverá correr o programa de emissões do gás "CO2e".
