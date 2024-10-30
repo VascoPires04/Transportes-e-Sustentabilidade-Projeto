@@ -1,16 +1,17 @@
-# Transportes-e-Sustentabilidade-Projeto-
-O presente respositório contêm todos os códigos efetuados para a concretização do projeto respetivo à cadeira do Instituto Superior Técnico (Transportes e Sustentabilidade)
+# Transport-and-Sustainability-Project
 
-De forma a obter os resultados dos valores de emissões, a ordem para correr o programa deverá ser a seguinte:
+This repository contains all the code used for the completion of the project for the Transport and Sustainability course at Instituto Superior Técnico.
 
-1º survey.py (que atribui um perfil a cada utilizador)
+To obtain the emission values, the programs should be run in the following order:
 
-2º descriptive_statistics.py (gera um ficheiro .txt com as estatísticas dos utilizadores baseadas nas perguntas do survey)
+1. Run `survey.py` (which assigns a profile to each user).
 
-3º Correr os ficheiros do género "Gas".py para obter os fatores de emissão respetivos.
+2. Run `descriptive_statistics.py` (generates a .txt file with user statistics based on the survey questions).
 
-4º Correr os ficherios "emissoes_Gas_peak/off_peak".py onde obterá os resultados finais no que toca às emissões por gás.
+3. Run files like `"Gas".py` to obtain the respective emission factors.
 
-5º Para gerar o gráfico com as respetivas emissões deverá correr o programa graph_emissions.py.
+4. Run the `"emissoes_Gas_peak/off_peak".py` files to obtain the final results for emissions per gas.
 
-6ª (Nota) para obter as shift-matrices somente, deverá correr o programa de emissões do gás "CO2e".
+5. To generate the graph of emissions, run `graph_emissions.py`.
+
+6. **Note**: To obtain only the shift matrices, run the emission program for the gas "CO2e".
