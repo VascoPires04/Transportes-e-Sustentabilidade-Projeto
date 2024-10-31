@@ -170,7 +170,7 @@ def obter_velocidade_pior_modo(pior_modo):
     elif pior_modo == 'Bus':
         return 15  # km/h para autocarro
     else:
-        return 10  # km/h para outros modos, se necessário
+        return 20  # km/h para outros modos, se necessário
 
 # Função para calcular a distância usando o tempo e a velocidade do pior modo
 def calcular_distancia_se_nao_informado(row):

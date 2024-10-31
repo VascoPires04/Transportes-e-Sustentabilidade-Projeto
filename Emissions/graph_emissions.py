@@ -7,19 +7,19 @@ times = ['off', 'peak']
 
 # Updated emission values in kg for each pollutant (before and after)
 emissions_before = {
-    'CO': [8.44, 9.56],
-    'NOx': [3.34, 4.95],
-    'PM': [0.12, 0.13],
-    'VOC': [1.13, 1.26],
-    'CO2e': [1714.55, 1840.51]
+    'CO': [8.54, 9.67],
+    'NOx': [3.58, 5.06],
+    'PM': [0.13, 0.14],
+    'VOC': [1.14, 1.28],
+    'CO2e': [1908.1, 2040.41]
 }
 
 emissions_after = {
-    'CO': [5.41, 6.12],
-    'NOx': [2.44, 3.57],
-    'PM': [0.09, 0.10],
+    'CO': [5.44, 6.15],
+    'NOx': [2.6, 3.64],
+    'PM': [0.1, 0.1],
     'VOC': [0.73, 0.82],
-    'CO2e': [1183.13, 1268.31]
+    'CO2e': [1320.55, 1409.76]
 }
 
 # Set up bar plot
