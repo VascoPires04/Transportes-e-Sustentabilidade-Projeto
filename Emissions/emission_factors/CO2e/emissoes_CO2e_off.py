@@ -18,19 +18,19 @@ df = pd.read_excel(file_path, sheet_name='Raw data')
 
 # Definir fatores de emissão (kg CO2 por km) para cada modo de transporte, incluindo combustíveis para carros
 fatores_emissao = {
-    'Car_Petrol': 984.759349601/1000/1.6,         # Real
-    'Car_Diesel': 196.666104906/1000/1.6,         # Real
-    'Car_LPG': 175.1210044813/1000/1.6,           # Real
-    'Bus': 1141.4086294429999/1000/20.3,            # Real
-    'Motorbike': 984.759349601/1000/1.6,          # Real
+    'Car_Petrol': 614.89/1000,         # Real
+    'Car_Diesel': 122.76/1000,         # Real
+    'Car_LPG': 109.33/1000,           # Real
+    'Bus': 56.25/1000,            # Real
+    'Motorbike': 614.89/1000,          # Real
     'Walk': 0.0,
     'Bike': 0.0,
     'Rail': 25.8/1000,                            # Real
     'Metro': 38.6/1000,                           # Real
     'Ferry': 0.16,                                # Real
-    'Taxi': 196.666104906/1000/1.6,               # Real
-    'Carpool': 196.666104906/1000/2,              # Real
-    'IST Shuttle': 196.666104906/1000/1.6         # Real
+    'Taxi': 122.76/1000,               # Real
+    'Carpool': 122.76/1000,              # Real
+    'IST Shuttle': 122.76/1000         # Real
 }
 
 

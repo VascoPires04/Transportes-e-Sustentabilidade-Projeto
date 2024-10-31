@@ -40,14 +40,17 @@ municipality_distribution = df['Where do you live (Municipality)?'].value_counts
 descriptive_stats['Municipality Distribution'] = municipality_distribution
 
 # 7. Number of children aged under 1
+descriptive_stats['Percentage Children Under 1'] = df['How many children do you have aged under 1?'].value_counts(normalize=True)*100
 descriptive_stats['Average Children Under 1'] = df['How many children do you have aged under 1?'].mean()
 descriptive_stats['Children Under 1 Standard Deviation'] = df['How many children do you have aged under 1?'].std()
 
 # 8. Number of children aged between 1 to 5 years
+descriptive_stats['Percentage Children between 1 and 5 years'] = df['How many children do you have aged between 1 to 5years?'].value_counts(normalize=True)*100
 descriptive_stats['Average Children Aged 1 to 5'] = df['How many children do you have aged between 1 to 5years?'].mean()
 descriptive_stats['Children Aged 1 to 5 Standard Deviation'] = df['How many children do you have aged between 1 to 5years?'].std()
 
 # 9. Number of children aged between 6 to 10 years
+descriptive_stats['Percentage Children Under 6 and 10 years'] = df['How many children do you have aged between 6 to 10years?'].value_counts(normalize=True)*100
 descriptive_stats['Average Children Aged 6 to 10'] = df['How many children do you have aged between 6 to 10years?'].mean()
 descriptive_stats['Children Aged 6 to 10 Standard Deviation'] = df['How many children do you have aged between 6 to 10years?'].std()
 
@@ -72,6 +75,7 @@ descriptive_stats['Travel Time Maximum'] = df['What is your usual travel time to
 # 14. Modes combined in daily commuting
 combined_modes_distribution = df['In case you don\'t travel by car to IST, which modes are combined in your daily commuting? (1 - walking only; 2 - Private car; 3 - Carpool; 4 - Bus: 5 - Ferry; 6 - Bike; 7 - Rail; 8 - Metro; 9 - motorbike; 10 - IST Shutle; 11 - Taxi; 12 - Other)'].value_counts(normalize=True) * 100
 descriptive_stats['Combined Modes Distribution'] = combined_modes_distribution
+
 
 # 15. Regular intermediate stops
 intermediate_stops_distribution = df['Is there any regular intermediate stop in your daily commuting (morning and/or afternoon)? If yes, chose the most common activity (more that twice a week)? (No - 0; Support to children (e.g., drive/walk children to/from school school) - 1; Support to elderlies - 2; Shopping - 3; Gym/Sports - 4; Work (e.g., working student) - 5; Other - 6)'].value_counts(normalize=True) * 100
@@ -122,6 +126,18 @@ descriptive_stats['Profile Distribution for the Decision Tree'] = profile_distri
 # 26. Profile Distribution survey
 profile_distribution_s = df['Would you use a bike-sharing system at IST and shift to cycling for daily commuting? (Not interested - 0; Definitely yes, even if it is not electric - 1; Definitely yes, if it is  electric - 2; I have to think - 3)'].value_counts()
 descriptive_stats['Profile Distribution for the Survey'] = profile_distribution_s
+
+
+# Análise do número de pessoas que usam cada modo de transporte (0 a 12)
+df['Transport Modes List'] = df['In case you don\'t travel by car to IST, which modes are combined in your daily commuting? (1 - walking only; 2 - Private car; 3 - Carpool; 4 - Bus: 5 - Ferry; 6 - Bike; 7 - Rail; 8 - Metro; 9 - motorbike; 10 - IST Shutle; 11 - Taxi; 12 - Other)'].apply(lambda x: [int(i) for i in str(x).split(';') if i.isdigit()])
+
+# Contagem de pessoas que usam cada modo de transporte pelo menos uma vez
+transport_mode_counts = {}
+for mode in range(0, 13):  # 0 a 12
+    transport_mode_counts[mode] = df['Transport Modes List'].apply(lambda x: mode in x).sum()
+
+descriptive_stats['Transport Mode Usage (0-12)'] = transport_mode_counts
+
 
 # Save the descriptive statistics to a .txt file
 output_file_path = 'Descriptive_Statistics.txt'  # Change the path as needed
